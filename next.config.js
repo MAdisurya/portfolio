@@ -52,12 +52,17 @@ const securityHeaders = [
   },
 ]
 
+const env = {
+  SHOW_HEADER_LOGO: process.env.SHOW_HEADER_LOGO,
+}
+
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
   eslint: {
     dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
   },
+  env,
   async headers() {
     return [
       {
