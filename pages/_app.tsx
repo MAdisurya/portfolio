@@ -10,6 +10,7 @@ import {
   ThemeProviderProps as NextThemeProviderProps,
 } from 'next-themes'
 import Head from 'next/head'
+import { AppProps } from 'next/app'
 
 import siteMetadata from '../data/siteMetadata'
 import Analytics from '../components/analytics'
@@ -26,7 +27,7 @@ const ThemeProvider: FC<ThemeProviderProps> = (props) => {
   return <NextThemeProvider {...rest}>{children}</NextThemeProvider>
 }
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute="class" defaultTheme={siteMetadata.theme}>
       <Head>
