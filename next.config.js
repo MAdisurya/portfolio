@@ -1,3 +1,6 @@
+const filter = require('lodash/filter')
+const startsWith = require('lodash/startsWith')
+
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
@@ -52,9 +55,7 @@ const securityHeaders = [
   },
 ]
 
-const env = {
-  SHOW_HEADER_LOGO: process.env.SHOW_HEADER_LOGO,
-}
+const ENV_PREFIX_TO_EXCLUDE = ['_']
 
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
@@ -62,7 +63,12 @@ module.exports = withBundleAnalyzer({
   eslint: {
     dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
   },
-  env,
+  env: filter(process.env, (env) => {
+    for (const prefix of ENV_PREFIX_TO_EXCLUDE) {
+      // exclude env vars that start with prefix
+      return !startsWith(env, prefix)
+    }
+  }),
   async headers() {
     return [
       {
