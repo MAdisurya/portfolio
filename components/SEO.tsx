@@ -11,18 +11,10 @@ interface BaseSEOProps {
 interface CommonSEOProps extends BaseSEOProps {
   ogType: string
   ogImage: Array<{ url: string }> | string
-  twImage: string
   canonicalUrl?: string
 }
 
-const CommonSEO = ({
-  title,
-  description,
-  ogType,
-  ogImage,
-  twImage,
-  canonicalUrl,
-}: CommonSEOProps) => {
+const CommonSEO = ({ title, description, ogType, ogImage, canonicalUrl }: CommonSEOProps) => {
   const router = useRouter()
   return (
     <Head>
@@ -39,11 +31,6 @@ const CommonSEO = ({
       ) : (
         <meta property="og:image" content={ogImage} key={ogImage} />
       )}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content={siteMetadata.twitter} />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={twImage} />
       <link
         rel="canonical"
         href={canonicalUrl ? canonicalUrl : `${siteMetadata.siteUrl}${router.asPath}`}
@@ -56,33 +43,17 @@ interface PageSEOProps extends BaseSEOProps {}
 
 export const PageSEO = ({ title, description }: PageSEOProps) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
-  const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
-  return (
-    <CommonSEO
-      title={title}
-      description={description}
-      ogType="website"
-      ogImage={ogImageUrl}
-      twImage={twImageUrl}
-    />
-  )
+  return <CommonSEO title={title} description={description} ogType="website" ogImage={ogImageUrl} />
 }
 
 interface TagSEOProps extends BaseSEOProps {}
 
 export const TagSEO = ({ title, description }: TagSEOProps) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
-  const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const router = useRouter()
   return (
     <>
-      <CommonSEO
-        title={title}
-        description={description}
-        ogType="website"
-        ogImage={ogImageUrl}
-        twImage={twImageUrl}
-      />
+      <CommonSEO title={title} description={description} ogType="website" ogImage={ogImageUrl} />
       <Head>
         <link
           rel="alternate"
@@ -172,8 +143,6 @@ export const BlogSEO = ({
     description: summary,
   }
 
-  const twImageUrl = featuredImages[0].url
-
   return (
     <>
       <CommonSEO
@@ -181,7 +150,6 @@ export const BlogSEO = ({
         description={summary}
         ogType="article"
         ogImage={featuredImages}
-        twImage={twImageUrl}
         canonicalUrl={canonicalUrl}
       />
       <Head>
