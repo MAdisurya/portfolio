@@ -1,5 +1,5 @@
-import { getAllFilesFrontMatter } from '../../lib/mdx'
-import formatDate from '../../lib/utils/formatDate'
+import { getAllFilesFrontMatter } from '../lib/mdx'
+import formatDate from '../lib/utils/formatDate'
 import siteMetadata from '../data/siteMetadata'
 
 import Link from '../components/Link'
