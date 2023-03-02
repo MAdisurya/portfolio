@@ -3,6 +3,7 @@ import React, { FC, PropsWithChildren } from 'react'
 interface Config {
   env: {
     SHOW_HEADER_LOGO: boolean
+    SHOW_NEWSLETTER: boolean
   }
 }
 
@@ -12,6 +13,7 @@ export const ConfigProvider: FC<PropsWithChildren<{}>> = ({ children }) => {
   const config: Config = {
     env: {
       SHOW_HEADER_LOGO: process.env.SHOW_HEADER_LOGO === 'true',
+      SHOW_NEWSLETTER: process.env.SHOW_NEWSLETTER === 'true',
     },
   }
 

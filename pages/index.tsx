@@ -1,3 +1,6 @@
+import { useContext } from 'react'
+
+import { ConfigContext } from '../lib/config'
 import { FrontMatter, getAllFilesFrontMatter } from '../lib/mdx'
 import formatDate from '../lib/utils/formatDate'
 import siteMetadata from '../data/siteMetadata'
@@ -20,6 +23,8 @@ export async function getStaticProps() {
 }
 
 export default function Home({ posts }: HomeProps) {
+  const { env } = useContext(ConfigContext)
+
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
@@ -95,7 +100,7 @@ export default function Home({ posts }: HomeProps) {
           </Link>
         </div>
       )}
-      {siteMetadata.newsletter?.provider && (
+      {env.SHOW_NEWSLETTER && siteMetadata.newsletter.provider && (
         <div className="flex items-center justify-center pt-4">
           <NewsletterForm />
         </div>
