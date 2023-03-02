@@ -14,6 +14,9 @@
 public/sitemap.xml
 .vercel
 
+# typescript
+*.tsbuildinfo
+
 # production
 /build
 *.xml
