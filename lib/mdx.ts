@@ -3,7 +3,6 @@ import fs from 'fs'
 import matter from 'gray-matter'
 import path from 'path'
 import readingTime from 'reading-time'
-import { visit } from 'unist-util-visit'
 import getAllFilesRecursively from './utils/files'
 // Remark packages
 import remarkGfm from 'remark-gfm'
@@ -23,24 +22,24 @@ import rehypePresetMinify from 'rehype-preset-minify'
 
 const root = process.cwd()
 
-export function getFiles(type) {
+export function getFiles(type: string) {
   const prefixPaths = path.join(root, 'data', type)
   const files = getAllFilesRecursively(prefixPaths)
   // Only want to return blog/path and ignore root, replace is needed to work on Windows
   return files.map((file) => file.slice(prefixPaths.length + 1).replace(/\\/g, '/'))
 }
 
-export function formatSlug(slug) {
+export function formatSlug(slug: string) {
   return slug.replace(/\.(mdx|md)/, '')
 }
 
-export function dateSortDesc(a, b) {
+export function dateSortDesc(a: number | string, b: number | string) {
   if (a > b) return -1
   if (a < b) return 1
   return 0
 }
 
-export async function getFileBySlug(type, slug) {
+export async function getFileBySlug(type: string, slug: string) {
   const mdxPath = path.join(root, 'data', type, `${slug}.mdx`)
   const mdPath = path.join(root, 'data', type, `${slug}.md`)
   const source = fs.existsSync(mdxPath)
@@ -60,7 +59,7 @@ export async function getFileBySlug(type, slug) {
     source,
     // mdx imports can be automatically source from the components directory
     cwd: path.join(root, 'components'),
-    xdmOptions(options, frontmatter) {
+    xdmOptions(options) {
       // this is the recommended way to add custom remark/rehype plugins:
       // The syntax might look weird, but it protects you in case we add/remove
       // plugins in the future.
@@ -107,12 +106,17 @@ export async function getFileBySlug(type, slug) {
   }
 }
 
-export async function getAllFilesFrontMatter(folder) {
+export type FrontMatter = matter.GrayMatterFile<string>['data'] & {
+  slug: string
+  date: string | null
+}
+
+export async function getAllFilesFrontMatter(folder: string) {
   const prefixPaths = path.join(root, 'data', folder)
 
   const files = getAllFilesRecursively(prefixPaths)
 
-  const allFrontMatter = []
+  const allFrontMatter: FrontMatter[] = []
 
   files.forEach((file) => {
     // Replace is needed to work on Windows

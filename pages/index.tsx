@@ -1,4 +1,4 @@
-import { getAllFilesFrontMatter } from '../lib/mdx'
+import { FrontMatter, getAllFilesFrontMatter } from '../lib/mdx'
 import formatDate from '../lib/utils/formatDate'
 import siteMetadata from '../data/siteMetadata'
 
@@ -9,13 +9,17 @@ import NewsletterForm from '../components/NewsletterForm'
 
 const MAX_DISPLAY = 5
 
+interface HomeProps {
+  posts: FrontMatter[]
+}
+
 export async function getStaticProps() {
   const posts = await getAllFilesFrontMatter('blog')
 
   return { props: { posts } }
 }
 
-export default function Home({ posts }) {
+export default function Home({ posts }: HomeProps) {
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
@@ -54,7 +58,7 @@ export default function Home({ posts }) {
                             </Link>
                           </h2>
                           <div className="flex flex-wrap">
-                            {tags.map((tag) => (
+                            {tags.map((tag: string) => (
                               <Tag key={tag} text={tag} />
                             ))}
                           </div>
