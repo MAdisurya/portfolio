@@ -1,8 +1,28 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import siteMetadata from '@/data/siteMetadata'
 
-const CommonSEO = ({ title, description, ogType, ogImage, twImage, canonicalUrl }) => {
+import siteMetadata from '../data/siteMetadata'
+
+interface BaseSEOProps {
+  title: string
+  description?: string
+}
+
+interface CommonSEOProps extends BaseSEOProps {
+  ogType: string
+  ogImage: Array<{ url: string }> | string
+  twImage: string
+  canonicalUrl?: string
+}
+
+const CommonSEO = ({
+  title,
+  description,
+  ogType,
+  ogImage,
+  twImage,
+  canonicalUrl,
+}: CommonSEOProps) => {
   const router = useRouter()
   return (
     <Head>
@@ -14,7 +34,7 @@ const CommonSEO = ({ title, description, ogType, ogImage, twImage, canonicalUrl 
       <meta property="og:site_name" content={siteMetadata.title} />
       <meta property="og:description" content={description} />
       <meta property="og:title" content={title} />
-      {ogImage.constructor.name === 'Array' ? (
+      {Array.isArray(ogImage) ? (
         ogImage.map(({ url }) => <meta property="og:image" content={url} key={url} />)
       ) : (
         <meta property="og:image" content={ogImage} key={ogImage} />
@@ -32,7 +52,9 @@ const CommonSEO = ({ title, description, ogType, ogImage, twImage, canonicalUrl 
   )
 }
 
-export const PageSEO = ({ title, description }) => {
+interface PageSEOProps extends BaseSEOProps {}
+
+export const PageSEO = ({ title, description }: PageSEOProps) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   return (
@@ -46,7 +68,9 @@ export const PageSEO = ({ title, description }) => {
   )
 }
 
-export const TagSEO = ({ title, description }) => {
+interface TagSEOProps extends BaseSEOProps {}
+
+export const TagSEO = ({ title, description }: TagSEOProps) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const router = useRouter()
@@ -71,6 +95,17 @@ export const TagSEO = ({ title, description }) => {
   )
 }
 
+type Author = { '@type': string; name: string }
+interface BlogSEOProps extends Pick<BaseSEOProps, 'title'> {
+  authorDetails: Author[]
+  summary: string
+  date: string
+  lastmod: string
+  url: string
+  images: string[]
+  canonicalUrl?: string
+}
+
 export const BlogSEO = ({
   authorDetails,
   title,
@@ -80,8 +115,7 @@ export const BlogSEO = ({
   url,
   images = [],
   canonicalUrl,
-}) => {
-  const router = useRouter()
+}: BlogSEOProps) => {
   const publishedAt = new Date(date).toISOString()
   const modifiedAt = new Date(lastmod || date).toISOString()
   let imagesArr =
@@ -98,7 +132,7 @@ export const BlogSEO = ({
     }
   })
 
-  let authorList
+  let authorList: Author[]
   if (authorDetails) {
     authorList = authorDetails.map((author) => {
       return {
@@ -107,10 +141,12 @@ export const BlogSEO = ({
       }
     })
   } else {
-    authorList = {
-      '@type': 'Person',
-      name: siteMetadata.author,
-    }
+    authorList = [
+      {
+        '@type': 'Person',
+        name: siteMetadata.author,
+      },
+    ]
   }
 
   const structuredData = {
