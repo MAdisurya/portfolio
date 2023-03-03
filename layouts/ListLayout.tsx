@@ -1,11 +1,18 @@
 import Link from '../components/Link'
 import Tag from '../components/Tag'
-import siteMetadata from '../data/siteMetadata'
 import { useState } from 'react'
-import Pagination from '../components/Pagination'
+import Pagination, { PaginationProps } from '../components/Pagination'
 import formatDate from '../lib/utils/formatDate'
+import { FrontMatter } from '../lib/mdx'
 
-export default function ListLayout({ posts, title, initialDisplayPosts = [], pagination }) {
+interface Props {
+  posts: FrontMatter[]
+  title: string
+  initialDisplayPosts?: FrontMatter[]
+  pagination?: PaginationProps
+}
+
+export default function ListLayout({ posts, title, initialDisplayPosts = [], pagination }: Props) {
   const [searchValue, setSearchValue] = useState('')
   const filteredBlogPosts = posts.filter((frontMatter) => {
     const searchContent = frontMatter.title + frontMatter.summary + frontMatter.tags.join(' ')
@@ -68,7 +75,7 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
                         </Link>
                       </h3>
                       <div className="flex flex-wrap">
-                        {tags.map((tag) => (
+                        {tags.map((tag: string) => (
                           <Tag key={tag} text={tag} />
                         ))}
                       </div>
