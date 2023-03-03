@@ -20,6 +20,13 @@ import rehypeCitation from 'rehype-citation'
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypePresetMinify from 'rehype-preset-minify'
 
+export type FrontMatter = matter.GrayMatterFile<string>['data'] & {
+  readingTime?: ReturnType<typeof readingTime>
+  fileName?: string
+  slug: string
+  date: string | null
+}
+
 const root = process.cwd()
 
 export function getFiles(type: string) {
@@ -102,13 +109,8 @@ export async function getFileBySlug(type: string, slug: string) {
       fileName: fs.existsSync(mdxPath) ? `${slug}.mdx` : `${slug}.md`,
       ...frontmatter,
       date: frontmatter.date ? new Date(frontmatter.date).toISOString() : null,
-    },
+    } as FrontMatter,
   }
-}
-
-export type FrontMatter = matter.GrayMatterFile<string>['data'] & {
-  slug: string
-  date: string | null
 }
 
 export async function getAllFilesFrontMatter(folder: string) {
