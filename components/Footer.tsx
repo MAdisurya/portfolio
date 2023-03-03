@@ -10,7 +10,7 @@ export default function Footer() {
 
   return (
     <footer>
-      <div className="mt-16 mb-8 flex flex-row items-center justify-between">
+      <div className="mt-16 mb-8 flex flex-col gap-y-2 sm:justify-between sm:flex-row sm:items-center">
         <div className="flex items-center gap-x-2 text-sm text-gray-500 dark:text-gray-400">
           Powered by <PoweredByIcons theme={theme} />
         </div>
