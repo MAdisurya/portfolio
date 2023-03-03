@@ -1,4 +1,7 @@
+import { GetStaticProps } from 'next'
+
 import { PageSEO } from '../../../components/SEO'
+import { PaginationProps } from '../../../components/Pagination'
 import siteMetadata from '../../../data/siteMetadata'
 import { getAllFilesFrontMatter } from '../../../lib/mdx'
 import ListLayout from '../../../layouts/ListLayout'
@@ -17,17 +20,17 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps(context) {
+export const getStaticProps: GetStaticProps = async (context) => {
   const {
     params: { page },
   } = context
   const posts = await getAllFilesFrontMatter('blog')
-  const pageNumber = parseInt(page)
+  const pageNumber = Array.isArray(page) ? parseInt(page[0]) : parseInt(page)
   const initialDisplayPosts = posts.slice(
     POSTS_PER_PAGE * (pageNumber - 1),
     POSTS_PER_PAGE * pageNumber
   )
-  const pagination = {
+  const pagination: PaginationProps = {
     currentPage: pageNumber,
     totalPages: Math.ceil(posts.length / POSTS_PER_PAGE),
   }
