@@ -1,22 +1,27 @@
-// eslint-disable-next-line import/no-anonymous-default-export
-export default async (req, res) => {
-  const { email } = req.body
+import { NextApiRequest, NextApiResponse } from 'next'
 
+// eslint-disable-next-line import/no-anonymous-default-export
+export default async (req: NextApiRequest, res: NextApiResponse) => {
+  const { email } = req.body
   if (!email) {
     return res.status(400).json({ error: 'Email is required' })
   }
 
   try {
-    const API_KEY = process.env.REVUE_API_KEY
-    const revueRoute = `${process.env.REVUE_API_URL}subscribers`
+    const API_URL = process.env.EMAILOCTOPUS_API_URL
+    const API_KEY = process.env.EMAILOCTOPUS_API_KEY
+    const LIST_ID = process.env.EMAILOCTOPUS_LIST_ID
 
-    const response = await fetch(revueRoute, {
-      method: 'POST',
+    const data = { email_address: email, api_key: API_KEY }
+
+    const API_ROUTE = `${API_URL}lists/${LIST_ID}/contacts`
+
+    const response = await fetch(API_ROUTE, {
+      body: JSON.stringify(data),
       headers: {
-        Authorization: `Token ${API_KEY}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ email, double_opt_in: false }),
+      method: 'POST',
     })
 
     if (response.status >= 400) {
