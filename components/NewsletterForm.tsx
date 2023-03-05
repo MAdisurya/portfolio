@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { SyntheticEvent, useRef, useState } from 'react'
 
 import siteMetadata from '../data/siteMetadata'
 
@@ -8,7 +8,7 @@ const NewsletterForm = ({ title = 'Subscribe to the newsletter' }) => {
   const [message, setMessage] = useState('')
   const [subscribed, setSubscribed] = useState(false)
 
-  const subscribe = async (e) => {
+  const subscribe = async (e: SyntheticEvent) => {
     e.preventDefault()
 
     const res = await fetch(`/api/${siteMetadata.newsletter.provider}`, {
