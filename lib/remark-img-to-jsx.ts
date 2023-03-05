@@ -2,14 +2,18 @@ import { visit } from 'unist-util-visit'
 import sizeOf from 'image-size'
 import fs from 'fs'
 
+function isParagraphNode(node: any): node is HTMLParagraphElement {
+  return node.type === 'paragraph'
+}
+
 export default function remarkImgToJsx() {
   return (tree) => {
     visit(
       tree,
       // only visit p tags that contain an img element
-      (node) => node.type === 'paragraph' && node.children.some((n) => n.type === 'image'),
+      (node) => isParagraphNode(node) && [...node.children].some((n: any) => n.type === 'image'),
       (node) => {
-        const imageNode = node.children.find((n) => n.type === 'image')
+        const imageNode = node.children.find((n: any) => n.type === 'image')
 
         // only local files
         if (fs.existsSync(`${process.cwd()}/public${imageNode.url}`)) {
