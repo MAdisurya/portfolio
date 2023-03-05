@@ -7,6 +7,7 @@ specifiers:
   '@svgr/webpack': ^6.1.2
   '@tailwindcss/forms': ^0.4.0
   '@tailwindcss/typography': ^0.5.0
+  '@types/mailchimp__mailchimp_marketing': ^3.0.7
   '@types/prettier': ^2.7.2
   '@types/react': ^18.0.1
   autoprefixer: ^10.4.0
@@ -89,6 +90,7 @@ dependencies:
 
 devDependencies:
   '@svgr/webpack': 6.5.1
+  '@types/mailchimp__mailchimp_marketing': 3.0.7
   '@types/prettier': 2.7.2
   '@types/react': 18.0.1
   cross-env: 7.0.3
@@ -1961,6 +1963,10 @@ packages:
   /@types/katex/0.11.1:
     resolution: {integrity: sha512-DUlIj2nk0YnJdlWgsFuVKcX27MLW0KbKmGVoUHmFr+74FYYNUDAaj9ZqTADvsbE8rfxuVmSFc7KczYn5Y09ozg==}
     dev: false
+
+  /@types/mailchimp__mailchimp_marketing/3.0.7:
+    resolution: {integrity: sha512-Yn+gLWT9ZxdtLxJpdMOWP8Wz69aRho4esBFZB4WzaWNp+gPDmmfWrARn0cIiiaubyseCn/ZfTc7o298LwprwfA==}
+    dev: true
 
   /@types/mdast/3.0.10:
     resolution: {integrity: sha512-W864tg/Osz1+9f4lrGTZpCSO5/z4608eUp19tbozkq2HJK6i3z1kT0H9tlADXuYIb1YYOBByU4Jsqkk75q48qA==}
