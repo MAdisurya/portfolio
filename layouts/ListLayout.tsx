@@ -3,7 +3,7 @@ import Tag from '../components/Tag'
 import { useState } from 'react'
 import Pagination, { PaginationProps } from '../components/Pagination'
 import formatDate from '../lib/utils/formatDate'
-import { FrontMatter } from '../lib/mdx'
+import { FrontMatter } from '../lib/types'
 
 interface Props {
   posts: FrontMatter[]

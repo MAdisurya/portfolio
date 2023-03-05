@@ -1,7 +1,8 @@
 import { useContext } from 'react'
 
 import { ConfigContext } from '../lib/config'
-import { FrontMatter, getAllFilesFrontMatter } from '../lib/mdx'
+import { FrontMatter } from '../lib/types'
+import { getAllFilesFrontMatter } from '../lib/mdx'
 import formatDate from '../lib/utils/formatDate'
 import siteMetadata from '../data/siteMetadata'
 

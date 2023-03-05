@@ -20,12 +20,7 @@ import rehypeCitation from 'rehype-citation'
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypePresetMinify from 'rehype-preset-minify'
 
-export type FrontMatter = matter.GrayMatterFile<string>['data'] & {
-  readingTime?: ReturnType<typeof readingTime>
-  fileName?: string
-  slug: string
-  date: string | null
-}
+import { FrontMatter } from './types'
 
 const root = process.cwd()
 
