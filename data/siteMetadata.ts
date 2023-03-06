@@ -10,13 +10,15 @@ const siteMetadata = {
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
-  email: null,
-  github: 'https://github.com',
-  twitter: null,
-  facebook: null,
-  youtube: null,
-  linkedin: 'https://www.linkedin.com',
   locale: 'en-US',
+  socialUrls: {
+    email: null,
+    github: 'https://github.com',
+    twitter: null,
+    facebook: null,
+    youtube: null,
+    linkedin: 'https://www.linkedin.com',
+  },
   analytics: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.

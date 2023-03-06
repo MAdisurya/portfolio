@@ -1,3 +1,7 @@
+import { FC, HTMLAttributes } from 'react'
+
+import siteMetadata from '../../data/siteMetadata'
+
 import Mail from './mail.svg'
 import Github from './github.svg'
 import Facebook from './facebook.svg'
@@ -7,8 +11,10 @@ import Twitter from './twitter.svg'
 
 // Icons taken from: https://simpleicons.org/
 
-const components = {
-  mail: Mail,
+export type SocialKeys = keyof typeof siteMetadata.socialUrls
+
+const components: Record<SocialKeys, FC<HTMLAttributes<any>>> = {
+  email: Mail,
   github: Github,
   facebook: Facebook,
   youtube: Youtube,
@@ -16,8 +22,14 @@ const components = {
   twitter: Twitter,
 }
 
-const SocialIcon = ({ kind, href, size = 8 }) => {
-  if (!href || (kind === 'mail' && !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href)))
+interface Props {
+  kind: keyof typeof components
+  href: string
+  size?: number
+}
+
+const SocialIcon: FC<Props> = ({ kind, href, size = 8 }) => {
+  if (!href || (kind === 'email' && !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href)))
     return null
 
   const SocialSvg = components[kind]
@@ -31,7 +43,7 @@ const SocialIcon = ({ kind, href, size = 8 }) => {
     >
       <span className="sr-only">{kind}</span>
       <SocialSvg
-        className={`fill-current text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 h-${size} w-${size}`}
+        className={`fill-current text-gray-700 hover:text-primary-500 dark:text-gray-200 dark:hover:text-primary-400 h-${size} w-${size}`}
       />
     </a>
   )
