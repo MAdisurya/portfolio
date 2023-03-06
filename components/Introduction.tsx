@@ -1,6 +1,12 @@
 import { FC } from 'react'
 
+import siteMetadata from '../data/siteMetadata'
+
+import SocialIcon, { SocialKeys } from './social-icons'
+
 const Introduction: FC = () => {
+  const { socialUrls } = siteMetadata
+
   return (
     <div className="flex flex-col gap-y-5">
       <h1 className="text-4xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-5xl sm:leading-10 md:text-7xl md:leading-14">
@@ -17,6 +23,11 @@ const Introduction: FC = () => {
         developers will love, with the expertise and experience to contribute across the entire
         stack.
       </p>
+      <div className="flex space-x-4">
+        {Object.entries(socialUrls).map(([kind, url]) => (
+          <SocialIcon key={kind} kind={kind as SocialKeys} href={url} size={8} />
+        ))}
+      </div>
     </div>
   )
 }

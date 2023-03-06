@@ -1,12 +1,14 @@
 import { useTheme } from 'next-themes'
 
 import siteMetadata from '../data/siteMetadata'
-import SocialIcon from '../components/social-icons'
+import SocialIcon, { SocialKeys } from '../components/social-icons'
 
 import PoweredByIcons from './powered-by-icons'
 
 export default function Footer() {
   const { theme } = useTheme()
+
+  const { socialUrls } = siteMetadata
 
   return (
     <footer>
@@ -18,12 +20,9 @@ export default function Footer() {
           <div>{siteMetadata.author}</div>
           <div>{` • `}</div>
           <div>{`© ${new Date().getFullYear()}`}</div>
-          <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size={6} />
-          <SocialIcon kind="github" href={siteMetadata.github} size={6} />
-          <SocialIcon kind="facebook" href={siteMetadata.facebook} size={6} />
-          <SocialIcon kind="youtube" href={siteMetadata.youtube} size={6} />
-          <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={6} />
-          <SocialIcon kind="twitter" href={siteMetadata.twitter} size={6} />
+          {Object.entries(socialUrls).map(([kind, url]) => (
+            <SocialIcon key={kind} kind={kind as SocialKeys} href={url} size={6} />
+          ))}
         </div>
       </div>
     </footer>

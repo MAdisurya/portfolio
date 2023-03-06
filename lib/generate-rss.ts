@@ -10,7 +10,7 @@ const generateRssItem = (post: FrontMatter) => `
     <link>${siteMetadata.siteUrl}/blog/${post.slug}</link>
     ${post.summary && `<description>${escape(post.summary)}</description>`}
     <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-    <author>${siteMetadata.email} (${siteMetadata.author})</author>
+    <author>${siteMetadata.socialUrls.email} (${siteMetadata.author})</author>
     ${post.tags && post.tags.map((t: string) => `<category>${t}</category>`).join('')}
   </item>
 `
@@ -22,8 +22,8 @@ const generateRss = (posts: FrontMatter[], page: string = 'feed.xml') => `
       <link>${siteMetadata.siteUrl}/blog</link>
       <description>${escape(siteMetadata.description)}</description>
       <language>${siteMetadata.language}</language>
-      <managingEditor>${siteMetadata.email} (${siteMetadata.author})</managingEditor>
-      <webMaster>${siteMetadata.email} (${siteMetadata.author})</webMaster>
+      <managingEditor>${siteMetadata.socialUrls.email} (${siteMetadata.author})</managingEditor>
+      <webMaster>${siteMetadata.socialUrls.email} (${siteMetadata.author})</webMaster>
       <lastBuildDate>${new Date(posts[0].date).toUTCString()}</lastBuildDate>
       <atom:link href="${siteMetadata.siteUrl}/${page}" rel="self" type="application/rss+xml"/>
       ${posts.map(generateRssItem).join('')}
