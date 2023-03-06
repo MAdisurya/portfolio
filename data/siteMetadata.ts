@@ -13,11 +13,11 @@ const siteMetadata = {
   locale: 'en-US',
   socialUrls: {
     email: null,
-    github: 'https://github.com',
+    github: 'https://github.com/MAdisurya',
     twitter: null,
     facebook: null,
     youtube: null,
-    linkedin: 'https://www.linkedin.com',
+    linkedin: 'https://www.linkedin.com/in/madisurya',
   },
   analytics: {
     // If you want to use an analytics provider you have to add it to the
