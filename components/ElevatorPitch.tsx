@@ -8,8 +8,8 @@ interface SectionProps {
 const Section: FC<SectionProps> = ({ title, description }) => {
   return (
     <div className="flex flex-col gap-y-2">
-      <h2 className="text-2xl font-semibold md:text-3xl">{title}</h2>
-      <p className="text-lg text-gray-700 dark:text-gray-300">{description}</p>
+      <h2 className="text-xl font-semibold md:text-2xl">{title}</h2>
+      <p className="text-md text-gray-700 dark:text-gray-300">{description}</p>
     </div>
   )
 }
@@ -17,7 +17,7 @@ const Section: FC<SectionProps> = ({ title, description }) => {
 const ElevatorPitch: FC = () => {
   return (
     <div className="flex flex-col gap-y-10">
-      <h2 className="text-2xl font-semibold md:text-3xl">
+      <h2 className="text-xl font-semibold md:text-2xl">
         Here are some ways I can make a postive impact to your business:
       </h2>
       <Section

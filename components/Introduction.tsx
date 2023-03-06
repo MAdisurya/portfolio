@@ -14,7 +14,8 @@ const Introduction: FC = () => {
       </h2>
       <p className="text-lg text-gray-700 dark:text-gray-300 md:text-xl">
         More specifically, I'm a web developer, and I can build web apps that your users and
-        developers will love, with the expertise and experience to work across the entire stack.
+        developers will love, with the expertise and experience to contribute across the entire
+        stack.
       </p>
     </div>
   )

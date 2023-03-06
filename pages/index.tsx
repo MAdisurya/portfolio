@@ -31,7 +31,7 @@ export default function Home({ posts }: HomeProps) {
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
-      <div className="sm:my-8">
+      <div className="py-14 sm:py-24">
         <Introduction />
       </div>
       <div className="my-12 sm:my-16">
