@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { FC, useContext } from 'react'
 
 import { ConfigContext } from '../lib/config'
 import { FrontMatter } from '../lib/types'
@@ -12,6 +12,20 @@ import Tag from '../components/Tag'
 import NewsletterForm from '../components/NewsletterForm'
 
 const MAX_DISPLAY = 5
+
+interface SectionProps {
+  title: string
+  description: string
+}
+
+const Section: FC<SectionProps> = ({ title, description }) => {
+  return (
+    <div className="flex flex-col gap-y-2">
+      <h2 className="text-2xl font-semibold md:text-3xl">{title}</h2>
+      <p className="text-lg text-gray-700 dark:text-gray-300">{description}</p>
+    </div>
+  )
+}
 
 interface HomeProps {
   posts: FrontMatter[]
@@ -29,7 +43,7 @@ export default function Home({ posts }: HomeProps) {
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
-      <div className="my-12 flex flex-col gap-y-4 sm:my-20">
+      <div className="flex flex-col gap-y-5 sm:my-8">
         <h1 className="text-4xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-5xl sm:leading-10 md:text-7xl md:leading-14">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-400">
             Hi there
@@ -39,6 +53,37 @@ export default function Home({ posts }: HomeProps) {
         <h2 className="text-2xl font-semibold sm:text-2xl md:text-3xl">
           I'm Mario Adisurya, and I'm a software engineer.
         </h2>
+        <p className="text-lg text-gray-700 dark:text-gray-300 md:text-xl">
+          More specifically, I'm a web developer, and I can build web apps that your users and
+          developers will love, with the expertise and experience to work across the entire stack.
+        </p>
+      </div>
+      <div className="my-12 flex flex-col gap-y-10 sm:my-16">
+        <h2 className="text-2xl font-semibold md:text-3xl">
+          Here are some ways I can make a postive impact to your business:
+        </h2>
+        <Section
+          title="📈 I can deliver value."
+          description="Whether it’s providing business impact by delivering new features, or by paying down
+          technical debt or helping improve processes so that the business and product will have
+          more long term sustainability."
+        />
+        <Section
+          title="👨‍💻 I can contribute beyond just writing code."
+          description="I will not just write great code that is readable and maintainable, but also collaborate
+          and contribute to infrastructure design, database schema design, and product decisions and scoping."
+        />
+        <Section
+          title="📊 I can help the business make more informed decisions."
+          description="I will help the business make more informed decisions by advocating for a more
+          research-based, data-driven and outcome-driven culture in the team. It’s important to do
+          prior user research to understand the problems that users are facing and come up with
+          the relevant solution, but it’s also equally as important to be able to quantitatively
+          measure the ROI and if the solution actually succeeded or not and solved the initial
+          user problem. Being able to measure what’s successful or not will provide clarity and
+          give the business more insight on which areas of the product and tech that should be
+          invested in."
+        />
       </div>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 pt-6 pb-8 md:space-y-5">
