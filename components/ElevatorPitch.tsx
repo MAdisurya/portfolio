@@ -32,14 +32,14 @@ const ElevatorPitch: FC = () => {
           and contribute to infrastructure design, database schema design, and product decisions and scoping."
       />
       <Section
-        title="📊 I can help the business make more informed decisions."
-        description="I will help the business make more informed decisions by advocating for a more
+        title="📊 I can help your business make more informed decisions."
+        description="I can help your business make more informed decisions by advocating for a more
           research-based, data-driven and outcome-driven culture in the team. It’s important to do
           prior user research to understand the problems that users are facing and come up with
           the relevant solution, but it’s also equally as important to be able to quantitatively
           measure the ROI and if the solution actually succeeded or not and solved the initial
           user problem. Being able to measure what’s successful or not will provide clarity and
-          give the business more insight on which areas of the product and tech that should be
+          give your business more insight on which areas of the product and tech that should be
           invested in."
       />
     </div>
