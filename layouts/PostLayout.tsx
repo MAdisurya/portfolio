@@ -1,23 +1,46 @@
+import { FC, PropsWithChildren } from 'react'
+
+import { FrontMatter } from '../lib/types'
+
 import Link from '../components/Link'
 import PageTitle from '../components/PageTitle'
 import SectionContainer from '../components/SectionContainer'
-import { BlogSEO } from '../components/SEO'
+import { Author, BlogSEO } from '../components/SEO'
 import Image from '../components/Image'
 import Tag from '../components/Tag'
 import siteMetadata from '../data/siteMetadata'
 import Comments from '../components/comments'
 import ScrollTopAndComment from '../components/ScrollTopAndComment'
 
-const editUrl = (fileName) => `${siteMetadata.siteRepo}/blob/master/data/blog/${fileName}`
-const discussUrl = (slug) =>
+const editUrl = (fileName: string) => `${siteMetadata.siteRepo}/blob/master/data/blog/${fileName}`
+const discussUrl = (slug: string) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(
     `${siteMetadata.siteUrl}/blog/${slug}`
   )}`
 
-const postDateTemplate = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+type DateTimeFormatOpts = 'weekday' | 'year' | 'month' | 'day'
+const postDateTemplate: Pick<Intl.DateTimeFormatOptions, DateTimeFormatOpts> = {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+}
 
-export default function PostLayout({ frontMatter, authorDetails, next, prev, children }) {
-  const { slug, fileName, date, title, images, tags } = frontMatter
+interface Props {
+  frontMatter: FrontMatter
+  authorDetails: Author[]
+  next: FrontMatter
+  prev: FrontMatter
+}
+
+const PostLayout: FC<PropsWithChildren<Props>> = ({
+  frontMatter,
+  authorDetails,
+  next,
+  prev,
+  children,
+}) => {
+  const { slug, fileName, date, title, tags } = frontMatter
 
   return (
     <SectionContainer>
@@ -104,7 +127,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                       Tags
                     </h2>
                     <div className="flex flex-wrap">
-                      {tags.map((tag) => (
+                      {tags.map((tag: string) => (
                         <Tag key={tag} text={tag} />
                       ))}
                     </div>
@@ -150,3 +173,5 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
     </SectionContainer>
   )
 }
+
+export default PostLayout

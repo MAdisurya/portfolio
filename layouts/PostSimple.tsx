@@ -1,18 +1,39 @@
+import { FC, PropsWithChildren } from 'react'
+
+import { FrontMatter } from '../lib/types'
+import formatDate from '../lib/utils/formatDate'
+
 import Link from '../components/Link'
 import PageTitle from '../components/PageTitle'
 import SectionContainer from '../components/SectionContainer'
-import { BlogSEO } from '../components/SEO'
+import { Author, BlogSEO } from '../components/SEO'
 import siteMetadata from '../data/siteMetadata'
-import formatDate from '../lib/utils/formatDate'
 import Comments from '../components/comments'
 import ScrollTopAndComment from '../components/ScrollTopAndComment'
 
-export default function PostLayout({ frontMatter, authorDetails, next, prev, children }) {
+interface Props {
+  frontMatter: FrontMatter
+  authorDetails: Author[]
+  next: FrontMatter
+  prev: FrontMatter
+}
+
+const PostLayout: FC<PropsWithChildren<Props>> = ({
+  frontMatter,
+  authorDetails,
+  next,
+  prev,
+  children,
+}) => {
   const { date, title } = frontMatter
 
   return (
     <SectionContainer>
-      <BlogSEO url={`${siteMetadata.siteUrl}/blog/${frontMatter.slug}`} {...frontMatter} />
+      <BlogSEO
+        url={`${siteMetadata.siteUrl}/blog/${frontMatter.slug}`}
+        authorDetails={authorDetails}
+        {...frontMatter}
+      />
       <ScrollTopAndComment />
       <article>
         <div>
@@ -69,3 +90,5 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
     </SectionContainer>
   )
 }
+
+export default PostLayout

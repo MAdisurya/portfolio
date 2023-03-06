@@ -1,3 +1,5 @@
+import { FC } from 'react'
+
 import Link from '../components/Link'
 import Tag from '../components/Tag'
 import { useState } from 'react'
@@ -12,7 +14,7 @@ interface Props {
   pagination?: PaginationProps
 }
 
-export default function ListLayout({ posts, title, initialDisplayPosts = [], pagination }: Props) {
+const ListLayout: FC<Props> = ({ posts, title, initialDisplayPosts = [], pagination }) => {
   const [searchValue, setSearchValue] = useState('')
   const filteredBlogPosts = posts.filter((frontMatter) => {
     const searchContent = frontMatter.title + frontMatter.summary + frontMatter.tags.join(' ')
@@ -96,3 +98,5 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
     </>
   )
 }
+
+export default ListLayout

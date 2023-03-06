@@ -1,8 +1,16 @@
+import { FC, PropsWithChildren } from 'react'
+
+import { FrontMatter } from '../lib/types'
+
 import SocialIcon from '../components/social-icons'
 import Image from '../components/Image'
 import { PageSEO } from '../components/SEO'
 
-export default function AuthorLayout({ children, frontMatter }) {
+interface Props {
+  frontMatter: FrontMatter
+}
+
+const AuthorLayout: FC<PropsWithChildren<Props>> = ({ children, frontMatter }) => {
   const { name, avatar, occupation, company, email, twitter, linkedin, github } = frontMatter
 
   return (
@@ -39,3 +47,5 @@ export default function AuthorLayout({ children, frontMatter }) {
     </>
   )
 }
+
+export default AuthorLayout

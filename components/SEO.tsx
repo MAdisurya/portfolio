@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import siteMetadata from '../data/siteMetadata'
 
 interface BaseSEOProps {
-  title: string
+  title?: string
   description?: string
 }
 
@@ -66,14 +66,15 @@ export const TagSEO = ({ title, description }: TagSEOProps) => {
   )
 }
 
-type Author = { '@type': string; name: string }
+export type Author = { '@type': string; name: string; avatar?: string; twitter?: string }
+
 interface BlogSEOProps extends Pick<BaseSEOProps, 'title'> {
   authorDetails: Author[]
-  summary: string
+  summary?: string
   date: string
-  lastmod: string
+  lastmod?: string
   url: string
-  images: string[]
+  images?: string[]
   canonicalUrl?: string
 }
 
