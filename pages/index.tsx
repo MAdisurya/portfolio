@@ -29,7 +29,7 @@ export default function Home({ posts }: HomeProps) {
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
-      <div className="my-16 flex flex-col gap-y-4">
+      <div className="my-12 flex flex-col gap-y-4 sm:my-20">
         <h1 className="text-4xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-5xl sm:leading-10 md:text-7xl md:leading-14">
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-400">
             Hi there

@@ -26,7 +26,11 @@ const LayoutWrapper = ({ children }) => {
                   </div>
                 )}
                 {typeof siteMetadata.headerTitle === 'string' ? (
-                  <div className="hidden h-6 text-2xl font-semibold sm:block">
+                  <div
+                    className={`${
+                      env.SHOW_HEADER_LOGO ? 'hidden ' : ''
+                    }h-6 text-2xl font-semibold sm:block`}
+                  >
                     {siteMetadata.headerTitle}
                   </div>
                 ) : (
