@@ -135,3 +135,32 @@ export async function getAllFilesFrontMatter(folder: string) {
 
   return allFrontMatter.sort((a, b) => dateSortDesc(a.date, b.date))
 }
+
+export type FileContent = Awaited<ReturnType<typeof getFileBySlug>>
+
+export async function getAllFilesContent(folder: string) {
+  const prefixPaths = path.join(root, 'data', folder)
+
+  const files = getAllFilesRecursively(prefixPaths)
+
+  const allContent: FileContent[] = []
+
+  const filesPromises = files.map(async (file) => {
+    // Replace is needed to work on Windows
+    const fileName = file.slice(prefixPaths.length + 1).replace(/\\/g, '/')
+    // Remove Unexpected File
+    if (path.extname(fileName) !== '.md' && path.extname(fileName) !== '.mdx') {
+      return
+    }
+    const slug = formatSlug(fileName)
+    const content = await getFileBySlug(folder, slug)
+
+    if (!content.frontMatter.draft) {
+      allContent.push(content)
+    }
+  })
+
+  await Promise.all(filesPromises)
+
+  return allContent.sort((a, b) => dateSortDesc(a.frontMatter.date, b.frontMatter.date))
+}
