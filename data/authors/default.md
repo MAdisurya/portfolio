@@ -1,11 +1,13 @@
 ---
 name: Mario Adisurya
 avatar: /static/images/avatar.png
-occupation: Software Engineer
+occupation: Software Engineer | Amateur 🏄
 ---
 
-Tails Azimuth is a professor of atmospheric sciences at the Stanford AI Lab. His research interests includes complexity modelling of tailwinds, headwinds and crosswinds.
+I'm a versatile web developer with the expertise and experience to be able to make a positive contribution in any web project across an entire stack (frontend, backend, infrastructure, devops).
 
-He leads the clean energy group which develops 3D air pollution-climate models, writes differential equation solvers, and manufactures titanium plated air ballons. In his free time he bakes raspberry pi.
+I believe that technologies role in society is to enable and unlock things that people weren't able to do before, such as streamlining and automating certain manual processes or making data collection and visualisation more accessible.
+So I naturally gravitate towards the type of work which involves building software which does this due to the impact it can make to society.
+More specifically, I'm currently interested in industries such as EdTech and IoT.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+Other than Software Engineering, listening to tech podcasts, or reading articles, I like to spend my time in the ocean catching some swell on my surfboard (or my SUP on smaller days). Yew! 🤙
