@@ -1,13 +1,11 @@
 import { FC } from 'react'
 
-import TextSection from './TextSection'
+import { SectionTitle, TextSection } from './section'
 
 const ElevatorPitch: FC = () => {
   return (
     <div className="flex flex-col gap-y-10">
-      <h2 className="text-xl font-semibold md:text-2xl">
-        Here are some ways I can make a postive impact to your business:
-      </h2>
+      <SectionTitle> Some ways I can make a postive impact to your business</SectionTitle>
       <TextSection
         title="📈 I can deliver value."
         description="Whether it’s providing business impact by delivering new features, or by paying down
