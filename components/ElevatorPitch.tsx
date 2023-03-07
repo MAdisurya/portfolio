@@ -1,18 +1,6 @@
 import { FC } from 'react'
 
-interface SectionProps {
-  title: string
-  description: string
-}
-
-const Section: FC<SectionProps> = ({ title, description }) => {
-  return (
-    <div className="flex flex-col gap-y-2">
-      <h2 className="text-xl font-semibold md:text-2xl">{title}</h2>
-      <p className="text-md text-gray-700 dark:text-gray-300">{description}</p>
-    </div>
-  )
-}
+import TextSection from './TextSection'
 
 const ElevatorPitch: FC = () => {
   return (
@@ -20,18 +8,18 @@ const ElevatorPitch: FC = () => {
       <h2 className="text-xl font-semibold md:text-2xl">
         Here are some ways I can make a postive impact to your business:
       </h2>
-      <Section
+      <TextSection
         title="📈 I can deliver value."
         description="Whether it’s providing business impact by delivering new features, or by paying down
           technical debt or helping improve processes so that the business and product will have
           more long term sustainability."
       />
-      <Section
+      <TextSection
         title="👨‍💻 I can contribute beyond just writing code."
         description="I will not just write great code that is readable and maintainable, but also collaborate
           and contribute to infrastructure design, database schema design, and product decisions and scoping."
       />
-      <Section
+      <TextSection
         title="📊 I can help your business make more informed decisions."
         description="I can help your business make more informed decisions by advocating for a more
           research-based, data-driven and outcome-driven culture in the team. It’s important to do
