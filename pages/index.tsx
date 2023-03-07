@@ -2,7 +2,7 @@ import { useContext } from 'react'
 
 import { ConfigContext } from '../lib/config'
 import { FrontMatter } from '../lib/types'
-import { getAllFilesFrontMatter } from '../lib/mdx'
+import { FileContent, getAllFilesFrontMatter, getAllFilesContent } from '../lib/mdx'
 import formatDate from '../lib/utils/formatDate'
 import siteMetadata from '../data/siteMetadata'
 
@@ -12,21 +12,24 @@ import Tag from '../components/Tag'
 import Introduction from '../components/Introduction'
 import ElevatorPitch from '../components/ElevatorPitch'
 import NewsletterForm from '../components/NewsletterForm'
-import { SectionTitle, TextSection } from '../components/section'
+import { SectionTitle } from '../components/section'
+import { MDXLayoutRenderer } from '../components/MDXComponents'
 
 const MAX_DISPLAY = 5
 
 interface HomeProps {
   posts: FrontMatter[]
+  workExp: FileContent[]
 }
 
 export async function getStaticProps() {
   const posts = await getAllFilesFrontMatter('blog')
+  const workExp = await getAllFilesContent('work-experience')
 
-  return { props: { posts } }
+  return { props: { posts, workExp } }
 }
 
-export default function Home({ posts }: HomeProps) {
+export default function Home({ posts, workExp }: HomeProps) {
   const { env } = useContext(ConfigContext)
 
   return (
@@ -38,20 +41,16 @@ export default function Home({ posts }: HomeProps) {
       <div className="py-12 sm:py-16">
         <ElevatorPitch />
       </div>
-      <div className="py-12 sm:py-16">
-        <div className="flex flex-col gap-y-10">
-          <SectionTitle>Recent work experience</SectionTitle>
-          <TextSection
-            title="Crimson Global Academy"
-            subtitle="The world's first fully-registered online global high school"
-            linkProps={{
-              children: 'crimsonglobalacademy.school',
-              href: 'https://www.crimsonglobalacademy.school',
-            }}
-            description="Lorem ipsum..."
-          />
+      {workExp.length > 0 && (
+        <div className="py-12 sm:py-16">
+          <div className="flex flex-col gap-y-10">
+            <SectionTitle>Recent work experience</SectionTitle>
+            {workExp.map((content, index) => (
+              <MDXLayoutRenderer key={index} layout="WorkExpLayout" {...content} />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 pt-6 pb-8 md:space-y-5">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
