@@ -1,7 +1,14 @@
-const headerNavLinks = [
+import { isDevelopment } from '../lib/environment'
+
+interface HeaderNavLink {
+  href: string
+  title: string
+}
+
+const headerNavLinks: Array<HeaderNavLink | undefined> = [
   { href: '/blog', title: 'Blog' },
   { href: '/tags', title: 'Tags' },
-  { href: '/projects', title: 'Projects' },
+  isDevelopment() ? { href: '/projects', title: 'Projects' } : undefined,
   { href: '/about', title: 'About' },
 ]
 

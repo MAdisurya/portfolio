@@ -1,7 +1,16 @@
+import { isDevelopment } from '../lib/environment'
 import siteMetadata from '../data/siteMetadata'
 import projectsData from '../data/projectsData'
 import Card from '../components/Card'
 import { PageSEO } from '../components/SEO'
+
+export function getStaticProps() {
+  return {
+    props: {},
+    // hides this page in test + production environments
+    notFound: !isDevelopment(),
+  }
+}
 
 export default function Projects() {
   return (
