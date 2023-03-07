@@ -12,6 +12,7 @@ import Tag from '../components/Tag'
 import Introduction from '../components/Introduction'
 import ElevatorPitch from '../components/ElevatorPitch'
 import NewsletterForm from '../components/NewsletterForm'
+import { SectionTitle, TextSection } from '../components/section'
 
 const MAX_DISPLAY = 5
 
@@ -34,8 +35,22 @@ export default function Home({ posts }: HomeProps) {
       <div className="py-14 sm:py-24">
         <Introduction />
       </div>
-      <div className="my-12 sm:my-16">
+      <div className="py-12 sm:py-16">
         <ElevatorPitch />
+      </div>
+      <div className="py-12 sm:py-16">
+        <div className="flex flex-col gap-y-10">
+          <SectionTitle>Recent work experience</SectionTitle>
+          <TextSection
+            title="Crimson Global Academy"
+            subtitle="The world's first fully-registered online global high school"
+            linkProps={{
+              children: 'crimsonglobalacademy.school',
+              href: 'https://www.crimsonglobalacademy.school',
+            }}
+            description="Lorem ipsum..."
+          />
+        </div>
       </div>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-2 pt-6 pb-8 md:space-y-5">

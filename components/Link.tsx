@@ -2,11 +2,11 @@ import { FC, AnchorHTMLAttributes } from 'react'
 /* eslint-disable jsx-a11y/anchor-has-content */
 import Link from 'next/link'
 
-interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface CustomLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   href: string
 }
 
-const CustomLink: FC<Props> = ({ href, ...rest }) => {
+const CustomLink: FC<CustomLinkProps> = ({ href, ...rest }) => {
   const isInternalLink = href && href.startsWith('/')
   const isAnchorLink = href && href.startsWith('#')
 
