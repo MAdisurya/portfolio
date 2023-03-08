@@ -57,7 +57,11 @@ const ListLayout: FC<Props> = ({ posts, title, initialDisplayPosts = [], paginat
           </div>
         </div>
         <ul>
-          {!filteredBlogPosts.length && 'No posts found.'}
+          {!filteredBlogPosts.length && (
+            <p className="pt-4">
+              There aren't any posts at the moment, but make sure to check back at another time.
+            </p>
+          )}
           {displayPosts.map((frontMatter) => {
             const { slug, date, title, summary, tags } = frontMatter
             return (
