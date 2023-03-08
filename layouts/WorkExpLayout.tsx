@@ -8,15 +8,15 @@ interface Props {
 }
 
 const WorkExpLayout: FC<PropsWithChildren<Props>> = ({ children, frontMatter }) => {
-  const { title, summary, linkText, linkUrl } = frontMatter
+  const { title, summary, link_text, link_url } = frontMatter
 
   return (
     <TextSection
       title={title}
       subtitle={summary}
       linkProps={{
-        children: linkText,
-        href: linkUrl,
+        children: link_text,
+        href: link_url,
       }}
     >
       {children}

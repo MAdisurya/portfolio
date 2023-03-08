@@ -1,8 +1,8 @@
 ---
 title: Crimson Global Academy
 date: '2023-03-08'
-linkText: 'crimsonglobalacademy.school'
-linkUrl: 'https://www.crimsonglobalacademy.school'
+link_text: 'crimsonglobalacademy.school'
+link_url: 'https://www.crimsonglobalacademy.school'
 draft: false
 summary: The world's first fully-registered online global high school
 ---
