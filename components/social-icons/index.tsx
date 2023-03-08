@@ -29,7 +29,9 @@ interface Props {
 }
 
 const SocialIcon: FC<Props> = ({ kind, href, size = 8 }) => {
-  if (!href || (kind === 'email' && !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href)))
+  const url = kind === 'email' ? `mailto:${href}` : href
+
+  if (!href || (kind === 'email' && !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(url)))
     return null
 
   const SocialSvg = components[kind]
@@ -39,7 +41,7 @@ const SocialIcon: FC<Props> = ({ kind, href, size = 8 }) => {
       className="text-sm text-gray-500 transition hover:text-gray-600"
       target="_blank"
       rel="noopener noreferrer"
-      href={href}
+      href={url}
     >
       <span className="sr-only">{kind}</span>
       <SocialSvg
