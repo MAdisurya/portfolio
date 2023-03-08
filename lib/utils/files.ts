@@ -21,12 +21,12 @@ const walkDir = (fullPath: string) => {
 const pathJoinPrefix = (prefix: string) => (extraPath: string) => path.join(prefix, extraPath)
 
 const getAllFilesRecursively = (folder: string): string[] => {
-  try {
-    return pipe(fs.readdirSync, map(pipe(pathJoinPrefix(folder), walkDir)), flattenArray)(folder)
-  } catch {
-    // We just silence any error and just return an empty string
+  // short-circuit if folder doesn't exist
+  if (!fs.existsSync(folder)) {
     return []
   }
+
+  return pipe(fs.readdirSync, map(pipe(pathJoinPrefix(folder), walkDir)), flattenArray)(folder)
 }
 
 export default getAllFilesRecursively
