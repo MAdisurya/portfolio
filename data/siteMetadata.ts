@@ -12,7 +12,7 @@ const siteMetadata = {
   socialBanner: '/static/images/twitter-card.png',
   locale: 'en-US',
   socialUrls: {
-    email: null,
+    email: 'marioadisurya@pm.me',
     github: 'https://github.com/MAdisurya',
     twitter: null,
     facebook: null,
