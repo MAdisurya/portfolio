@@ -2,13 +2,13 @@ const siteMetadata = {
   title: 'Mario Adisurya',
   author: 'Mario Adisurya',
   headerTitle: 'MAd.',
-  description: 'A blog created with Next.js and Tailwind.css',
+  description: "Mario Adisurya's personal website",
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
   siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
   siteLogo: '/static/images/logo.png',
-  image: '/static/images/avatar.png',
+  image: '/static/images/logo.png',
   socialBanner: '/static/images/twitter-card.png',
   locale: 'en-US',
   socialUrls: {
