@@ -4,6 +4,7 @@ interface Config {
   env: {
     SHOW_HEADER_LOGO: boolean
     SHOW_NEWSLETTER: boolean
+    DISABLE_COMMENTS: boolean
   }
 }
 
@@ -14,6 +15,7 @@ export const ConfigProvider: FC<PropsWithChildren<{}>> = ({ children }) => {
     env: {
       SHOW_HEADER_LOGO: process.env.SHOW_HEADER_LOGO === 'true',
       SHOW_NEWSLETTER: process.env.SHOW_NEWSLETTER === 'true',
+      DISABLE_COMMENTS: process.env.DISABLE_COMMENTS === 'true',
     },
   }
 

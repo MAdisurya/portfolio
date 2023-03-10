@@ -1,8 +1,9 @@
-import { FC } from 'react'
+import { FC, useContext } from 'react'
 import dynamic from 'next/dynamic'
 
 import siteMetadata from '../../data/siteMetadata'
 import { FrontMatter } from '../../lib/types'
+import { ConfigContext } from '../../lib/config'
 
 const UtterancesComponent = dynamic(
   () => {
@@ -28,8 +29,13 @@ interface Props {
 }
 
 const Comments: FC<Props> = ({ frontMatter }) => {
+  const { env } = useContext(ConfigContext)
+
   const comment = siteMetadata?.comment
+
+  if (env.DISABLE_COMMENTS) return null
   if (!comment || Object.keys(comment).length === 0) return null
+
   return (
     <div id="comment">
       {siteMetadata.comment && siteMetadata.comment.provider === 'giscus' && <GiscusComponent />}
