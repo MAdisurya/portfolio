@@ -1,7 +1,11 @@
+import { useEffect, useState, useContext } from 'react'
+
 import siteMetadata from '../data/siteMetadata'
-import { useEffect, useState } from 'react'
+import { ConfigContext } from '../lib/config'
 
 const ScrollTopAndComment = () => {
+  const { env } = useContext(ConfigContext)
+
   const [show, setShow] = useState(false)
 
   useEffect(() => {
@@ -24,7 +28,7 @@ const ScrollTopAndComment = () => {
     <div
       className={`fixed right-8 bottom-8 hidden flex-col gap-3 ${show ? 'md:flex' : 'md:hidden'}`}
     >
-      {siteMetadata.comment.provider && (
+      {!env.DISABLE_COMMENTS && siteMetadata.comment.provider && (
         <button
           aria-label="Scroll To Comment"
           type="button"
