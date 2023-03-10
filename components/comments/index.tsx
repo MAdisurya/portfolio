@@ -1,5 +1,8 @@
-import siteMetadata from '../../data/siteMetadata'
+import { FC } from 'react'
 import dynamic from 'next/dynamic'
+
+import siteMetadata from '../../data/siteMetadata'
+import { FrontMatter } from '../../lib/types'
 
 const UtterancesComponent = dynamic(
   () => {
@@ -20,9 +23,13 @@ const DisqusComponent = dynamic(
   { ssr: false }
 )
 
-const Comments = ({ frontMatter }) => {
+interface Props {
+  frontMatter: FrontMatter
+}
+
+const Comments: FC<Props> = ({ frontMatter }) => {
   const comment = siteMetadata?.comment
-  if (!comment || Object.keys(comment).length === 0) return <></>
+  if (!comment || Object.keys(comment).length === 0) return null
   return (
     <div id="comment">
       {siteMetadata.comment && siteMetadata.comment.provider === 'giscus' && <GiscusComponent />}

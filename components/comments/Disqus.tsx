@@ -1,8 +1,15 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 
 import siteMetadata from '../../data/siteMetadata'
+import { FrontMatter } from '../../lib/types'
 
-const Disqus = ({ frontMatter }) => {
+const WINDOW = window as any
+
+interface Props {
+  frontMatter: FrontMatter
+}
+
+const Disqus: FC<Props> = ({ frontMatter }) => {
   const [enableLoadComments, setEnabledLoadComments] = useState(true)
 
   const COMMENTS_ID = 'disqus_thread'
@@ -10,19 +17,19 @@ const Disqus = ({ frontMatter }) => {
   function LoadComments() {
     setEnabledLoadComments(false)
 
-    window.disqus_config = function () {
+    WINDOW.disqus_config = function () {
       this.page.url = window.location.href
       this.page.identifier = frontMatter.slug
     }
-    if (window.DISQUS === undefined) {
+    if (WINDOW.DISQUS === undefined) {
       const script = document.createElement('script')
       script.src = 'https://' + siteMetadata.comment.disqusConfig.shortname + '.disqus.com/embed.js'
-      script.setAttribute('data-timestamp', +new Date())
+      script.setAttribute('data-timestamp', new Date().getTime().toString())
       script.setAttribute('crossorigin', 'anonymous')
       script.async = true
       document.body.appendChild(script)
     } else {
-      window.DISQUS.reset({ reload: true })
+      WINDOW.DISQUS.reset({ reload: true })
     }
   }
 
