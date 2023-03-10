@@ -2,14 +2,14 @@ const siteMetadata = {
   title: 'Mario Adisurya',
   author: 'Mario Adisurya',
   headerTitle: 'MAd.',
-  description: "Mario Adisurya's personal website",
+  description: 'Mario Adisurya - Software Engineer',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://marioadisurya.com',
   siteRepo: 'https://github.com/MAdisurya/portfolio',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/logo.png',
-  socialBanner: '/static/images/twitter-card.png',
+  socialBanner: '/static/images/mad-banner.png',
   locale: 'en-US',
   socialUrls: {
     email: 'marioadisurya@pm.me',
