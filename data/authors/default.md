@@ -1,6 +1,5 @@
 ---
 name: Mario Adisurya
-avatar: /static/images/avatar.png
 occupation: Software Engineer | Amateur 🏄
 ---
 
