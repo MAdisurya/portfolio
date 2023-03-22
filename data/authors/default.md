@@ -1,6 +1,6 @@
 ---
 name: Mario Adisurya
-occupation: Software Engineer | Amateur 🏄
+occupation: Senior Software Engineer | Surfing Hobbyist 🏄
 ---
 
 I'm a versatile web developer with the expertise and experience to be able to make a positive contribution in any web project across an entire stack (frontend, backend, infrastructure, devops).

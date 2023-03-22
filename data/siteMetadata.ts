@@ -1,8 +1,8 @@
 const siteMetadata = {
-  title: 'Mario Adisurya',
+  title: 'A versatile web developer that can make a positive contribution to your business',
   author: 'Mario Adisurya',
   headerTitle: 'MAd.',
-  description: 'Mario Adisurya - Software Engineer',
+  description: 'Mario Adisurya - Senior Software Engineer',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://marioadisurya.com',
