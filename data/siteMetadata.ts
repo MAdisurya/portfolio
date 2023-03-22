@@ -1,5 +1,5 @@
 const siteMetadata = {
-  title: 'A versatile web developer that can make a positive contribution to your business',
+  title: 'Web Dev, DX Enthusiast - Mario Adisurya',
   author: 'Mario Adisurya',
   headerTitle: 'MAd.',
   description: 'Mario Adisurya - Senior Software Engineer',
