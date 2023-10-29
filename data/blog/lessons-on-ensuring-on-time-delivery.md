@@ -1,7 +1,7 @@
 ---
 title: Lessons on ensuring on-time delivery
 date: '2023-03-10'
-tags: ['processes', 'tech']
+tags: ['processes', 'tech', 'learnings']
 draft: false
 summary: I admit it, realistic time estimations and on-time delivery was something that I (and probably many of us) could never get quite right. These are some lessons I've learned to provide more accurate time estimates and ensure on-time delivery.
 ---
