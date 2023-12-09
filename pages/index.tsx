@@ -61,14 +61,12 @@ export default function Home({ posts, workExp }: HomeProps) {
               Most recent blog posts of my learnings or opinions on tech.
               <br />
               If you have more appetite for short-form content, checkout my{' '}
-              <a
+              <Link
                 className="transition text-primary-500 hover:text-primary-600"
-                target="_blank"
-                rel="noopener noreferrer"
                 href={siteMetadata.socialUrls.threads}
               >
                 threads
-              </a>
+              </Link>
               !
             </p>
           </div>
