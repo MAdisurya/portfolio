@@ -62,7 +62,7 @@ export default function Home({ posts, workExp }: HomeProps) {
               <br />
               If you have more appetite for short-form content, checkout my{' '}
               <Link
-                className="transition text-primary-500 hover:text-primary-600"
+                className="transition text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                 href={siteMetadata.socialUrls.threads}
               >
                 threads
