@@ -58,7 +58,18 @@ export default function Home({ posts, workExp }: HomeProps) {
               Latest
             </h1>
             <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-              Most recent blog posts of my learnings or opinions on tech
+              Most recent blog posts of my learnings or opinions on tech.
+              <br />
+              If you have more appetite for short-form content, checkout my{' '}
+              <a
+                className="transition text-primary-500 hover:text-primary-600"
+                target="_blank"
+                rel="noopener noreferrer"
+                href={siteMetadata.socialUrls.threads}
+              >
+                threads
+              </a>
+              !
             </p>
           </div>
           <ul className="divide-y divide-gray-200 dark:divide-gray-700">
