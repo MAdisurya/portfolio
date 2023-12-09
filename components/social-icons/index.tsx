@@ -8,6 +8,7 @@ import Facebook from './facebook.svg'
 import Youtube from './youtube.svg'
 import Linkedin from './linkedin.svg'
 import Twitter from './twitter.svg'
+import Threads from './threads.svg'
 
 // Icons taken from: https://simpleicons.org/
 
@@ -16,6 +17,7 @@ export type SocialKeys = keyof typeof siteMetadata.socialUrls
 const components: Record<SocialKeys, FC<HTMLAttributes<any>>> = {
   email: Mail,
   github: Github,
+  threads: Threads,
   facebook: Facebook,
   youtube: Youtube,
   linkedin: Linkedin,

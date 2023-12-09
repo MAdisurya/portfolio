@@ -12,12 +12,13 @@ const siteMetadata = {
   socialBanner: '/static/images/mad-banner.png',
   locale: 'en-US',
   socialUrls: {
-    email: 'marioadisurya@pm.me',
+    threads: 'https://www.threads.net/@mario.adisurya',
     github: 'https://github.com/MAdisurya',
+    linkedin: 'https://www.linkedin.com/in/madisurya',
+    email: 'marioadisurya@pm.me',
     twitter: null,
     facebook: null,
     youtube: null,
-    linkedin: 'https://www.linkedin.com/in/madisurya',
   },
   analytics: {
     // If you want to use an analytics provider you have to add it to the
