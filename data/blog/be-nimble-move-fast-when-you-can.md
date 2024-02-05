@@ -8,7 +8,7 @@ summary: 'Speed is critical to business success, where delivering too slowly can
 
 Speed is critical to business success, where delivering too slowly can result in a business losing its competitive edge. Some of the most successful people I’ve worked with, the ones who you just know can thrive in any business, all have this one particular characteristic (or skill?): to be able to discriminate and know when one can move fast and when one can’t, and isn’t afraid to face uncertainty head-on and move fast when they can.
 
-I believe that this is attributed to having a strong culture that embraces iteration and continuous improvement. Below, I share some of my perspectives on areas you can focus on to foster, strengthen, and embrace to integrate iteration and continuous improvement into your company culture.
+I believe that this is attributed to having a strong culture that embraces iteration and continuous improvement. Below, I share some of my perspectives on areas you can focus on to foster and strengthen iteration and continuous improvement in your company culture.
 
 ## Dissent > Consensus
 
