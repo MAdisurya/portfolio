@@ -15,9 +15,9 @@ const ElevatorPitch: FC = () => {
       </TextSection>
       <TextSection title="👨‍💻 I can contribute beyond just writing code.">
         <p className="text-md sm:text-lg">
-          I will not just write great code that is readable and maintainable, but also collaborate
-          and contribute to infrastructure design, database schema design, and product decisions and
-          scoping.
+          Beyond authoring code that is readable and maintainable, I have experience providing
+          technical leadership on a diverse set of projects and can also contribute to product
+          scoping and decisions, and a robust, sustainable, and pragmatic technical design.
         </p>
       </TextSection>
       <TextSection title="📊 I can help your business make more informed decisions.">
