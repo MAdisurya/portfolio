@@ -15,12 +15,8 @@ However, if you _have_ been living under a rock, then here’s a quick summary:
 - This global outage was caused by a single update to CrowdStrikes “falcon” product.
 - Microsoft revealed that [8.5 million windows devices were impacted](https://blogs.microsoft.com/blog/2024/07/20/helping-our-customers-through-the-crowdstrike-outage/)
 
-<aside>
-💡
-
-If you’re looking for a more comprehensive summary of the CrowdStrike incident, check out [the pragmatic engineer’s post](https://newsletter.pragmaticengineer.com/p/the-biggest-ever-global-outage-lessons)!
-
-</aside>
+> [!note]
+> If you’re looking for a more comprehensive summary of the CrowdStrike incident, check out [the pragmatic engineer’s post](https://newsletter.pragmaticengineer.com/p/the-biggest-ever-global-outage-lessons)!
 
 Unsurprisingly, CrowdStrike received a lot of scrutiny from the public regarding their seemingly “YOLO” deployment process. But out of all the comments that they received, what I found the most interesting was the comments that were condemning their decision to deploy on a Friday, and how _not_ deploying on Friday would’ve been the magic solution to all their problems (yes, I may have slightly over-exaggerated this).
 
@@ -48,12 +44,8 @@ With this database guarantee in place, whenever someone (or something) tries to 
 
 In fact, if I was the one in the scenario, this is probably the first change I would apply. It’s a simpler and quicker change in comparison to building out an admin portal that you could probably roll out within a day and mitigates the issue of incorrect user status values being set since the database makes it virtually impossible to do so.
 
-<aside>
-💡
-
-On an aside: values in enum types are _extremely_ difficult to remove once you’ve added it. Not only would you need to “vacuum” all rows referencing the enum value, but it’s also possible for index pages to include these values too. Because of this, it’s generally not recommended to remove values from enum types ([PostgreSQL just outright says you can’t](https://www.postgresql.org/docs/current/datatype-enum.html#DATATYPE-ENUM-IMPLEMENTATION-DETAILS)). So use enum types with caution :)
-
-</aside>
+> [!note]
+> Values in enum types are _extremely_ difficult to remove once you’ve added it. Not only would you need to “vacuum” all rows referencing the enum value, but it’s also possible for index pages to include these values too. Because of this, it’s generally not recommended to remove values from enum types ([PostgreSQL just outright says you can’t](https://www.postgresql.org/docs/current/datatype-enum.html#DATATYPE-ENUM-IMPLEMENTATION-DETAILS)). So use enum types with caution :)
 
 ### 2. The operations team is manually updating user statuses by hand
 
@@ -63,12 +55,8 @@ Continuing with the example, let’s say that after we discovered that the opera
 
 Had you known this, you might’ve approached this differently. Instead of an admin portal, you might’ve suggested to implement some “delete user” feature directly in the app so that users can delete/deactivate their user account without needing to issue a support ticket. This mitigates the need for the operations team to get involved with user account deactivations entirely and focus on higher leverage support tasks.
 
-<aside>
-💡
-
-It worth noting that this is purely just for example’s sake. In practice, it might make sense to add some friction to user deletions/deactivations—or even better, figure out why your users are churning in the first place and address it!
-
-</aside>
+> [!note]
+> It's worth noting that this is purely just for example’s sake. In practice, it might make sense to add some friction to user deletions/deactivations—or even better, figure out why your users are churning in the first place and address it!
 
 ## Conclusion
 
@@ -79,6 +67,8 @@ In fact, I don’t actually have anything against admin portals or not deploying
 [Software reliability happens in-depth](https://sophiabits.com/blog/software-reliability-happens-in-depth) and I personally think that CrowdStrike did a great job in their [preliminary post mortem](https://www.crowdstrike.com/blog/falcon-content-update-preliminary-post-incident-report/) by prescribing a holistic set of improvements they can apply to their deployment strategy as a whole.
 
 So the next time someone tells you not to deploy on a Friday as a hard rule you need to respect consistently, instead of blindly agreeing with them, you should first ask yourself: _Why?_
+
+---
 
 References:
 
