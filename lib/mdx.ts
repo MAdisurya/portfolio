@@ -17,6 +17,7 @@ import rehypeSlug from 'rehype-slug'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeKatex from 'rehype-katex'
 import rehypeCitation from 'rehype-citation'
+import rehypeCallouts from 'rehype-callouts'
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypePresetMinify from 'rehype-preset-minify'
 
@@ -81,6 +82,7 @@ export async function getFileBySlug(type: string, slug: string) {
         rehypeAutolinkHeadings,
         rehypeKatex,
         [rehypeCitation, { path: path.join(root, 'data') }],
+        [rehypeCallouts, { theme: 'vitepress' }],
         [rehypePrismPlus, { ignoreMissing: true }],
         rehypePresetMinify,
       ]
