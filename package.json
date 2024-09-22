@@ -4,7 +4,7 @@
   "private": true,
   "engines": {
     "node": ">=16",
-    "pnpm": "~9.11.0"
+    "pnpm": "~9"
   },
   "scripts": {
     "start": "cross-env SOCKET=true node ./scripts/next-remote-watch.js ./data",
