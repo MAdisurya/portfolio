@@ -80,6 +80,9 @@ References:
 On an aside, here are some articles on similar-ish topics that I enjoyed reading:
 
 - ["Beware the architecture astronaut" - Sophia Willows](https://sophiabits.com/blog/beware-the-architecture-astronaut)
+
   Sophia warns us of becoming architecture astronauts by providing readers with an example of it in action during her time in Crimson Education. Though this doesn’t directly relate to not “deploying on Friday’s” rule, there are similarities in the learnings and takeaways that Sophia discusses. Definitely worth a read!
+
 - ["Let’s Work Together to Make Painful Software Outages a Thing of the Past" - LaunchDarkly](https://launchdarkly.com/blog/making-outages-a-thing-of-the-past/)
+
   LaunchDarkly discusses four methods we can leverage to minimize software outages: progressive rollouts, automated monitoring and instant rollbacks, runtime configuration management, targeted segments. Though the article is _slightly_ angled to sell their product, I think that the suggestions they’ve discussed still has some merit :)
