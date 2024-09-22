@@ -55,19 +55,10 @@ export default function Home({ posts, workExp }: HomeProps) {
         <div className="divide-y divide-gray-200 dark:divide-gray-700">
           <div className="space-y-2 pt-6 pb-8 md:space-y-5">
             <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-              Latest
+              Blog
             </h1>
             <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-              Most recent blog posts of my learnings or opinions on tech.
-              <br />
-              If you have more appetite for short-form content, checkout my{' '}
-              <Link
-                className="transition text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                href={siteMetadata.socialUrls.threads}
-              >
-                threads
-              </Link>
-              !
+              Sometimes I like to write about and share my learnings and opinions with the world :)
             </p>
           </div>
           <ul className="divide-y divide-gray-200 dark:divide-gray-700">
